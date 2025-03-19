@@ -1,5 +1,5 @@
 const express = require('express')
-const port = 3560
+const port = 8080
 const app = express()
 app.use(express.json())
 const UserModel = require('./user.model')
@@ -21,7 +21,6 @@ app.post('/send',async(req,res)=>{
         return res.status(500).json(error)
         
     }
-
 })
 
 app.listen(port, () => {

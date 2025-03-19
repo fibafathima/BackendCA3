@@ -3,6 +3,9 @@ const port = 8080
 const app = express()
 app.use(express.json())
 
+app.get("/",(req,res)=>{
+    res.status(200).json({"Message":"Welcome User"})
+})
 
 app.post('/send',async(req,res)=>{
     try {

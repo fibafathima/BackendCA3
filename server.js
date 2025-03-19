@@ -4,7 +4,7 @@ const app = express()
 app.use(express.json())
 
 app.get("/",(req,res)=>{
-    res.status(200).json({"Message":"Welcome User"})
+    res.send("pages/index.html")
 })
 
 app.post('/send',async(req,res)=>{

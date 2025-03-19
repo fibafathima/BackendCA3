@@ -27,7 +27,7 @@ app.post('/send',async(req,res)=>{
             return res.status(400).json({"Message":"Password cannot be empty"})
         }
         const newUser = new UserModel({email, password});
-        const savedUser = newUser.save()
+        const savedUser = await newUser.save()
         return res.status(201).json(savedUser)
         
     } catch (error) {

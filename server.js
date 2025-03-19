@@ -1,21 +1,8 @@
 const express = require('express')
-const mongoose = require('mongoose')
-const mongo = process.env.mongoURL
-const dotenv = require('dotenv')
-const UserModel = require('./user.model')
-dotenv.config()
-const port = process.env.PORT
+const port = 3560
 const app = express()
 app.use(express.json())
-
-
-mongoose.connect(mongo)
-.then(()=>console.log("Connected to MongoDB"))
-.catch(error=>console.error(error))
-
-app.get('/', (req, res) => {
-    res.sendFile(resolve(__dirname, 'pages/index.html'));
-  });
+const UserModel = require('./user.model')
 
 app.post('/send',async(req,res)=>{
     try {

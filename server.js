@@ -9,8 +9,6 @@ const app = express()
 app.use(express.json())
 
 
-
-
 mongoose.connect(mongo)
 .then(()=>console.log("Connected to MongoDB"))
 .catch(error=>console.error(error))
@@ -29,8 +27,8 @@ app.post('/send',async(req,res)=>{
             return res.status(400).json({"Message":"Password cannot be empty"})
         }
         const newUser = new UserModel({email, password});
-        await newUser.save()
-        return res.status(201).json({"Message":"User added"})
+        const savedUser = newUser.save()
+        return res.status(201).json(savedUser)
         
     } catch (error) {
         return res.status(500).json(error)
